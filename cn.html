@@ -214,6 +214,15 @@
           font-size: 56px;
         }
       }
+
+
+      /* tablet-lift */
+      @media (min-width: 601px) and (max-width: 900px) {
+        .page { transform: translateY(-30px); }
+      }
+      @media (max-width: 1200px) and (min-width: 901px) {
+        .page { transform: translateY(-30px); }
+      }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }
       body.is-ready { opacity: 1; }
