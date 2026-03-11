@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>钓鱼套餐 - Bosang Fishing Park</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: #5ce1e6;
+        font-family: "Noto Sans SC", system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .page {
+        width: 100%;
+        max-width: 1200px;
+        padding: 24px 24px 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .package-layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .package-img-wrap {
+        flex: 0 0 auto;
+      }
+      .package-img-wrap img {
+        display: block;
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+      }
+      .package-options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        min-width: 280px;
+      }
+      .package-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: #000;
+        text-align: left;
+      }
+      .package-btn {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        padding: 18px 32px;
+        border-radius: 16px;
+        border: 3px solid #fff;
+        font-size: 24px;
+        font-weight: 800;
+        text-decoration: none;
+        text-align: center;
+      }
+      .package-btn-full {
+        background-color: #e6391a;
+        color: #fff;
+      }
+      .package-btn-half {
+        background-color: #ffe8ae;
+        color: #e6391a;
+      }
+      .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+      }
+      .home-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      @media (max-width: 960px) {
+        .page {
+          padding: 20px 16px 80px;
+        }
+        .package-layout {
+          flex-direction: column;
+          gap: 32px;
+        }
+        .package-img-wrap img {
+          max-width: 280px;
+        }
+        .package-options {
+          align-items: center;
+        }
+        .package-title {
+          font-size: 24px;
+          text-align: center;
+        }
+        .package-btn {
+          font-size: 20px;
+          padding: 14px 24px;
+        }
+        .home-btn {
+          width: 56px;
+          height: 56px;
+          right: 16px;
+          bottom: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="package-layout">
+        <div class="package-img-wrap">
+          <img src="public/7package.png" alt="钓鱼套餐" />
+        </div>
+        <div class="package-options">
+          <h1 class="package-title">请选择钓鱼套餐。</h1>
+          <a href="cn-package-full.html" class="package-btn package-btn-full">全天</a>
+          <a href="cn-package-half.html" class="package-btn package-btn-half">半天</a>
+        </div>
+      </div>
+      <a href="index.html" class="home-btn" aria-label="返回主页">
+        <img src="public/3home.png" alt="主页按钮" />
+      </a>
+    </div>
+  </body>
+</html>

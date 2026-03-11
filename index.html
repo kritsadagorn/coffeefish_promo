@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bosang Fishing Park</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #5ce1e6;
+        font-family: "Marcellus", serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page {
+        width: 100%;
+        padding: 40px 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+
+      .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .title {
+        font-family: "Marcellus", serif;
+        font-size: 38px;
+        letter-spacing: 0.25em;
+        line-height: 1.7;
+      }
+
+      .logo-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .logo-stack img {
+        display: block;
+        width: 250px;
+        height: auto;
+      }
+
+      .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        margin-left: 80px;
+      }
+
+      .flags-row {
+        display: flex;
+        gap: 90px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flag-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .flag-block img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+      }
+
+      .flag-label {
+        font-family: "Bitter", serif;
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 40px;
+      }
+
+      .choose-text {
+        margin-top: 100px;
+        font-family: "Marcellus", serif;
+        font-size: 50px;
+        letter-spacing: 0.35em;
+      }
+
+      .choose-text-global {
+        display: none;
+      }
+
+      @media (max-width: 1200px) and (min-width: 901px) {
+        .page {
+          padding: 32px 4vw;
+        }
+
+        .title {
+          font-size: 32px;
+        }
+
+        .logo-stack img {
+          width: 220px;
+        }
+
+        .right-column {
+          margin-left: 56px;
+        }
+
+        .flags-row {
+          gap: 56px;
+        }
+
+        .flag-block img {
+          width: 180px;
+          height: 180px;
+        }
+
+        .flag-label {
+          font-size: 30px;
+          margin-top: 28px;
+        }
+
+        .choose-text {
+          margin-top: 24px;
+          font-size: 28px;
+          letter-spacing: 0.2em;
+          white-space: nowrap;
+        }
+      }
+
+      @media (max-width: 900px) {
+        body {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .page {
+          padding: 24px 16px;
+          gap: 16px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .left-column {
+          align-items: flex-start;
+          text-align: left;
+        }
+
+        .title {
+          font-size: 26px;
+          letter-spacing: 0.16em;
+        }
+
+        .logo-stack img {
+          width: 160px;
+        }
+
+        .right-column {
+          margin-left: 16px;
+          margin-top: 40px;
+          gap: 20px;
+        }
+
+        .flags-row {
+          flex-direction: column;
+          gap: 16px;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+
+        .flag-block img {
+          width: 90px;
+          height: 90px;
+        }
+
+        .flag-label {
+          font-size: 16px;
+          margin-top: 12px;
+        }
+
+        .choose-text {
+          display: none;
+        }
+
+        .choose-text-global {
+          display: block;
+          margin-top: 24px;
+          font-family: "Marcellus", serif;
+          font-size: 20px;
+          letter-spacing: 0.08em;
+          text-align: center;
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="left-column">
+        <div class="title">
+          BOSANG<br />
+          FISHING<br />
+          PARK
+        </div>
+        <div class="logo-stack">
+          <a
+            href="https://www.facebook.com/Bosangfishingpark/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Bosang Fishing Park Facebook page"
+          >
+            <img src="public/1bosang.png" alt="Bosang Fishing Park logo" />
+          </a>
+          <a
+            href="https://www.facebook.com/CoffeeFISHth"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open CoffeeFISH Facebook page"
+          >
+            <img src="public/2coffeefish.png" alt="Coffeefish QR" />
+          </a>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="flags-row">
+          <a href="th.html" class="flag-block" style="text-decoration: none; color: inherit">
+            <img src="public/9th.png" alt="Thai flag" />
+            <div class="flag-label">ภาษาไทย</div>
+          </a>
+          <a href="en.html" class="flag-block" style="text-decoration: none; color: inherit">
+            <img src="public/10en.png" alt="English flag" />
+            <div class="flag-label">English</div>
+          </a>
+          <a href="cn.html" class="flag-block" style="text-decoration: none; color: inherit">
+            <img src="public/11cn.png" alt="Chinese flag" />
+            <div class="flag-label">Chinese</div>
+          </a>
+        </div>
+        <div class="choose-text">PLEASE CHOOSE LANGUAGE</div>
+      </div>
+    </div>
+    <div class="choose-text-global">PLEASE CHOOSE LANGUAGE</div>
+  </body>
+</html>

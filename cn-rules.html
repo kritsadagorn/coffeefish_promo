@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>钓鱼规则与条款 - Bosang Fishing Park</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: #5ce1e6;
+        font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .page {
+        width: 100%;
+        max-width: 1000px;
+        padding: 20px 80px 80px;
+        position: relative;
+      }
+      .title-bar {
+        background-color: #ffe8ae;
+        border: 2px solid #333;
+        border-radius: 12px;
+        padding: 12px 24px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .title-bar span {
+        font-size: 38px;
+        font-weight: 800;
+        color: #000;
+      }
+      .slide-area {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+      .slide-area img.main-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .nav-buttons-row {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        height: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-buttons-row .btn-nav {
+        pointer-events: auto;
+      }
+      .btn-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 64px;
+        height: 64px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+      }
+      .btn-nav img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .btn-prev {
+        left: -56px;
+      }
+      .btn-next {
+        right: -56px;
+      }
+      .btn-prev img {
+        transform: scaleX(-1);
+      }
+      .slide-container {
+        position: relative;
+      }
+      .click-here-wrap {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        text-align: center;
+      }
+      .click-here-wrap a {
+        display: inline-block;
+      }
+      .click-here-wrap img {
+        max-width: 200px;
+        height: auto;
+      }
+      .enjoy-view .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+        display: inline-block;
+      }
+      .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+        display: inline-block;
+      }
+      .home-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .rules-view.slide-tight .title-bar {
+        margin-bottom: 6px;
+      }
+      .rules-view.slide-tight .slide-area {
+        margin-top: -14px;
+      }
+      .rules-view.slides-1-2 .title-bar {
+        margin-bottom: 4px;
+      }
+      .rules-view.slides-1-2 .slide-area {
+        margin-top: -26px;
+      }
+      .rules-view.hidden,
+      .enjoy-view.hidden {
+        display: none !important;
+      }
+      .enjoy-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px 0;
+      }
+      .enjoy-view .page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+      .enjoy-view img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media (max-width: 1200px) and (min-width: 901px) {
+        .slide-area img.main-img {
+          max-width: 75%;
+        }
+        .rules-view.slide-small .slide-area img.main-img {
+          max-width: 58%;
+        }
+        .click-here-wrap {
+          bottom: -85px;
+        }
+        .click-here-wrap img {
+          max-width: 280px;
+        }
+        .enjoy-view img {
+          max-width: 60%;
+        }
+      }
+      @media (max-width: 900px) {
+        .page {
+          padding: 16px 56px 72px;
+        }
+        .btn-nav {
+          width: 48px;
+          height: 48px;
+        }
+        .btn-prev {
+          left: -40px;
+        }
+        .btn-next {
+          right: -40px;
+        }
+        .enjoy-view .home-btn {
+          width: 56px;
+          height: 56px;
+          right: 12px;
+          bottom: 12px;
+        }
+      }
+      @media (max-width: 600px) {
+        body {
+          justify-content: center;
+        }
+        .page {
+          padding: 12px 16px 72px;
+        }
+        .title-bar {
+          padding: 8px 12px;
+          margin-bottom: 12px;
+        }
+        .title-bar span {
+          font-size: 22px;
+        }
+        .slide-area {
+          flex-direction: column;
+          min-height: 0;
+          align-items: stretch;
+        }
+        .slide-area img.main-img {
+          width: 100%;
+          max-width: 100%;
+        }
+        .nav-buttons-row {
+          position: static;
+          transform: none;
+          height: auto;
+          pointer-events: auto;
+          display: flex;
+          justify-content: center;
+          gap: 16px;
+          margin-top: 16px;
+        }
+        .nav-buttons-row .btn-nav {
+          position: static;
+          transform: none;
+        }
+        .btn-prev,
+        .btn-next {
+          left: auto;
+          right: auto;
+        }
+        .click-here-wrap {
+          bottom: -95px;
+        }
+        .click-here-wrap img {
+          max-width: 260px;
+        }
+        .enjoy-view img {
+          max-width: 88%;
+        }
+        .enjoy-view .home-btn {
+          position: static;
+          display: block;
+          margin: 16px auto 0;
+          width: 56px;
+          height: 56px;
+        }
+      }
+      @media (min-width: 601px) and (max-width: 900px) {
+        #enjoy-view .home-btn {
+          width: 96px !important;
+          height: 96px !important;
+          min-width: 96px !important;
+          min-height: 96px !important;
+          right: 24px !important;
+          bottom: 24px !important;
+          display: inline-block !important;
+        }
+        #enjoy-view .home-btn img {
+          width: 96px !important;
+          height: 96px !important;
+          min-width: 96px !important;
+          min-height: 96px !important;
+          object-fit: contain;
+        }
+      }
+      @media (min-width: 901px) and (max-width: 1200px) {
+        #enjoy-view .home-btn {
+          width: 96px !important;
+          height: 96px !important;
+          min-width: 96px !important;
+          min-height: 96px !important;
+          right: 24px !important;
+          bottom: 24px !important;
+          display: inline-block !important;
+        }
+        #enjoy-view .home-btn img {
+          width: 96px !important;
+          height: 96px !important;
+          min-width: 96px !important;
+          min-height: 96px !important;
+          object-fit: contain;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rules-view" class="rules-view">
+      <div class="page">
+        <div class="title-bar">
+          <span>钓鱼规则与条款</span>
+        </div>
+        <div class="slide-container">
+          <div class="slide-area">
+            <img id="slide-img" class="main-img" src="public/31rulecn1.png" alt="" />
+            <div class="nav-buttons-row">
+              <button type="button" class="btn-nav btn-prev" id="btn-prev" aria-label="上一页" style="display: none;">
+                <img src="public/4next.png" alt="" />
+              </button>
+              <button type="button" class="btn-nav btn-next" id="btn-next" aria-label="下一页">
+                <img src="public/4next.png" alt="" />
+              </button>
+            </div>
+          </div>
+          <div class="click-here-wrap" id="click-here-wrap" style="display: none;">
+            <a href="#" id="click-here-btn">
+              <img src="public/8clickhere.png" alt="CLICK HERE" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="enjoy-view" class="enjoy-view hidden">
+      <div class="page">
+        <img src="public/44enjoy.png" alt="" />
+        <a href="index.html" class="home-btn" aria-label="返回主页">
+          <img src="public/3home.png" alt="Home" />
+        </a>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var slides = [
+          "public/31rulecn1.png",
+          "public/34rulecn2.png",
+          "public/37rulecn3.png",
+          "public/40rulecn4.png",
+          "public/43acceptcn.png"
+        ];
+        var index = 0;
+        var slideImg = document.getElementById("slide-img");
+        var btnPrev = document.getElementById("btn-prev");
+        var btnNext = document.getElementById("btn-next");
+        var clickHereWrap = document.getElementById("click-here-wrap");
+        var clickHereBtn = document.getElementById("click-here-btn");
+        var rulesView = document.getElementById("rules-view");
+        var enjoyView = document.getElementById("enjoy-view");
+
+        function updateSlide() {
+          slideImg.src = slides[index];
+          btnPrev.style.display = (index > 0 && index < slides.length - 1) ? "block" : "none";
+          btnNext.style.display = index < slides.length - 1 ? "block" : "none";
+          clickHereWrap.style.display = index === slides.length - 1 ? "block" : "none";
+          rulesView.classList.toggle("slide-tight", index <= 1 || index >= 3);
+          rulesView.classList.toggle("slides-1-2", index <= 1);
+          rulesView.classList.toggle("slide-small", index >= 2);
+        }
+
+        btnPrev.addEventListener("click", function () {
+          if (index > 0) {
+            index--;
+            updateSlide();
+          }
+        });
+        btnNext.addEventListener("click", function () {
+          if (index < slides.length - 1) {
+            index++;
+            updateSlide();
+          }
+        });
+        clickHereBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          rulesView.classList.add("hidden");
+          enjoyView.classList.remove("hidden");
+        });
+
+        updateSlide();
+      })();
+    </script>
+  </body>
+</html>

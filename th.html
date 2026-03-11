@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>ค่าบริการตกปลา - Bosang Fishing Park</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #5ce1e6;
+        font-family: "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 1200px;
+        padding: 32px 24px 56px;
+        position: relative;
+      }
+
+      .header-bar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 40px;
+        background-color: #ff6a00;
+        border-radius: 16px;
+        margin-bottom: 32px;
+      }
+
+      .header-bar span {
+        font-size: 48px;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      .cards-row {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 12px;
+        flex-wrap: nowrap;
+      }
+
+      .card-slot {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .card-link {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .card-link .card,
+      .card-slot .card {
+        flex: 1;
+        width: 100%;
+      }
+
+      .card-slot:nth-child(2) .card-link {
+        flex: 1 1 0;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .card-slot:nth-child(2) .card {
+        flex: 1 1 0;
+        min-height: 0;
+        height: 100%;
+      }
+
+      .card {
+        background-color: #5ce1e6;
+        border-radius: 24px;
+        border: 6px solid #ffffff;
+        padding: 10px 8px 16px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .card img {
+        display: block;
+        width: 90%;
+        height: auto;
+      }
+
+      .card-title {
+        font-size: 32px;
+        font-weight: 800;
+        color: #000000;
+        text-align: center;
+      }
+
+      .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+      }
+
+      .home-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .page {
+          padding: 12px 8px 56px;
+        }
+
+        .header-bar {
+          width: 100%;
+          justify-content: center;
+          padding-inline: 12px;
+        }
+
+        .header-bar span {
+          font-size: 32px;
+          text-align: center;
+        }
+
+        .cards-row {
+          flex-wrap: nowrap;
+          gap: 8px;
+        }
+
+        .card {
+          padding: 8px 6px 12px;
+        }
+
+        .card-title {
+          font-size: 22px;
+        }
+
+        .card-slot:nth-child(2) .card-link {
+          flex: 1 1 0;
+          min-height: 0;
+          height: 100%;
+        }
+        .card-slot:nth-child(2) .card {
+          flex: 1 1 0;
+          min-height: 0;
+          height: 100%;
+        }
+
+        .home-btn {
+          width: 56px;
+          height: 56px;
+          right: 12px;
+          bottom: 12px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header-bar span {
+          font-size: 26px;
+        }
+        .card-title {
+          font-size: 18px;
+        }
+        .card-slot:nth-child(2) .card-link {
+          flex: 1 1 0;
+          min-height: 0;
+          height: 100%;
+        }
+        .card-slot:nth-child(2) .card {
+          flex: 1 1 0;
+          min-height: 0;
+          height: 100%;
+        }
+      }
+
+      @media (min-width: 601px) and (max-width: 900px) {
+        .card-title {
+          font-size: 56px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header-bar">
+        <span>ค่าบริการตกปลา</span>
+      </div>
+
+      <div class="cards-row">
+        <div class="card-slot">
+          <a href="th-own.html" class="card-link">
+            <div class="card">
+              <img src="public/5own.png" alt="นำเบ็ดตกปลามาเอง" />
+              <div class="card-title">นำเบ็ดตกปลามาเอง</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card-slot">
+          <a href="th-rent.html" class="card-link">
+            <div class="card">
+              <img src="public/6rent.png" alt="เช่าเบ็ด" />
+              <div class="card-title">เช่าเบ็ด</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card-slot">
+          <a href="th-package.html" class="card-link">
+            <div class="card">
+              <img src="public/7package.png" alt="แพ็กเกจตกปลา" />
+              <div class="card-title">แพ็กเกจตกปลา</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html" class="home-btn" aria-label="กลับหน้าแรก">
+        <img src="public/3home.png" alt="ปุ่มกลับหน้าแรก" />
+      </a>
+    </div>
+  </body>
+</html>
+

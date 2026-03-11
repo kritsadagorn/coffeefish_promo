@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>นำเบ็ดตกปลามาเอง - Bosang Fishing Park</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #5ce1e6;
+        font-family: "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 1200px;
+        padding: 24px 24px 64px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .top-banner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 40px;
+        background-color: #ffe8ae;
+        border-radius: 16px;
+        margin-bottom: 24px;
+        font-size: 44px;
+        font-weight: 800;
+      }
+
+      .layout-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+      }
+
+      .side-label {
+        background-color: #ffe8ae;
+        border-radius: 16px;
+        padding: 24px 18px;
+        font-size: 38px;
+        font-weight: 800;
+        color: #e6391a;
+        text-align: center;
+        min-width: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .center-img {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .center-img img {
+        display: block;
+        width: 100%;
+        max-width: 680px;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .terms-panel {
+        background-color: #ffb247;
+        border-radius: 50px;
+        padding: 28px 26px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        min-width: 230px;
+      }
+
+      .terms-title {
+        font-size: 32px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .click-btn {
+        display: inline-block;
+        margin-top: 4px;
+        padding: 10px 26px;
+        border-radius: 999px;
+        background-color: #ff3232;
+        color: #ffffff;
+        font-weight: 800;
+        text-decoration: none;
+        font-size: 24px;
+      }
+
+      .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+      }
+
+      .home-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @media (max-width: 1200px) and (min-width: 961px) {
+        .page {
+          padding: 16px 16px 56px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .top-banner {
+          margin-bottom: 16px;
+          font-size: 38px;
+          padding: 8px 28px;
+        }
+
+        .layout-row {
+          justify-content: space-around;
+          gap: 8px;
+        }
+
+        .side-label {
+          flex: 0 0 auto;
+          padding: 16px 12px;
+          font-size: 32px;
+          min-width: 120px;
+        }
+
+        .center-img {
+          flex: 0 1 auto;
+        }
+
+        .center-img img {
+          max-width: 520px;
+        }
+
+        .terms-panel {
+          min-width: 190px;
+          flex: 0 0 auto;
+          padding: 16px 14px 14px;
+          gap: 12px;
+          border-radius: 44px;
+        }
+
+        .terms-title {
+          font-size: 26px;
+        }
+
+        .click-btn {
+          padding: 8px 18px;
+          font-size: 20px;
+        }
+
+        .home-btn {
+          width: 64px;
+          height: 64px;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .page {
+          padding: 12px 10px 72px;
+        }
+
+        .top-banner {
+          font-size: 26px;
+          padding: 8px 20px;
+        }
+
+        .layout-row {
+          flex-direction: column;
+        }
+
+        .center-img img {
+          max-width: 100%;
+        }
+
+        .side-label {
+          padding: 10px 10px;
+          font-size: 20px;
+          width: 100%;
+        }
+
+        .terms-panel {
+          padding: 14px 12px 12px;
+          width: 100%;
+        }
+
+        .terms-title br {
+          display: none;
+        }
+        .terms-title {
+          font-size: 24px;
+          white-space: nowrap;
+        }
+        .click-btn {
+          display: block;
+          text-align: center;
+          font-size: 16px;
+          padding: 8px 20px;
+        }
+
+        .home-btn {
+          width: 64px;
+          height: 64px;
+          right: 16px;
+          bottom: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="top-banner">ค่าบริการตกปลา</div>
+
+      <div class="layout-row">
+        <div class="side-label">นำเบ็ดตกปลามาเอง</div>
+
+        <div class="center-img">
+          <img src="public/12own.png" alt="ค่าบริการ นำเบ็ดตกปลามาเอง" />
+        </div>
+
+        <div class="terms-panel">
+          <div class="terms-title">กฎและข้อบังคับ<br />ในการตกปลา</div>
+          <a href="th-rules.html" class="click-btn">CLICK HERE</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="home-btn" aria-label="กลับหน้าแรก">
+        <img src="public/3home.png" alt="ปุ่มกลับ" />
+      </a>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Half day package - Bosang Fishing Park</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        min-height: 100vh;
+        background-color: #5ce1e6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 24px 96px;
+      }
+      .page {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px;
+      }
+      .home-btn {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 72px;
+        height: 72px;
+        display: inline-block;
+      }
+      .home-btn img { width: 100%; height: 100%; display: block; }
+      @media (max-width: 900px) {
+        .home-btn { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+      }
+      @media (max-width: 600px) {
+        body { padding: 16px 16px 96px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <img class="main-img" src="public/18halfen.png" alt="" />
+    </div>
+    <a href="index.html" class="home-btn" aria-label="Home">
+      <img src="public/3home.png" alt="Home" />
+    </a>
+  </body>
+</html>
+
