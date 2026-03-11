@@ -324,6 +324,18 @@
           object-fit: contain;
         }
       }
+      /* page-fade */
+      body { opacity: 0; transition: opacity 220ms ease; }
+      body.is-ready { opacity: 1; }
+      body.is-fading { opacity: 0; }
+      @media (prefers-reduced-motion: reduce) {
+        body { transition: none; }
+      }
+      /* slide-fade */
+      #slide-img { transition: opacity 180ms ease; }
+      #slide-img.img-fade { opacity: 0; }
+
+
     </style>
   </head>
   <body>
@@ -384,7 +396,13 @@
         var enjoyView = document.getElementById("enjoy-view");
 
         function updateSlide() {
-          slideImg.src = slides[index];
+          slideImg.classList.add("img-fade");
+          slideImg.onload = function () {
+            slideImg.classList.remove("img-fade");
+          };
+          window.setTimeout(function () {
+            slideImg.src = slides[index];
+          }, 80);
           btnPrev.style.display = (index > 0 && index < slides.length - 1) ? "block" : "none";
           btnNext.style.display = index < slides.length - 1 ? "block" : "none";
           clickHereWrap.style.display = index === slides.length - 1 ? "block" : "none";
@@ -418,5 +436,50 @@
         updateSlide();
       })();
     </script>
+
+    <script>
+      (function () {
+        function markReady() {
+          document.body.classList.add("is-ready");
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", markReady);
+        } else {
+          markReady();
+        }
+
+        var prefersReduced = false;
+        try {
+          prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        } catch (e) {}
+        if (prefersReduced) return;
+
+        document.addEventListener(
+          "click",
+          function (e) {
+            var a = e.target && e.target.closest ? e.target.closest("a") : null;
+            if (!a) return;
+
+            if (e.defaultPrevented) return;
+            if (e.button !== 0) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            if (a.target && a.target !== "_self") return;
+
+            var href = a.getAttribute("href");
+            if (!href || href === "#") return;
+            if (href.indexOf("javascript:") === 0) return;
+            if (href[0] === "#") return;
+
+            e.preventDefault();
+            document.body.classList.add("is-fading");
+            window.setTimeout(function () {
+              window.location.href = href;
+            }, 200);
+          },
+          true
+        );
+      })();
+    </script>
+
   </body>
 </html>
