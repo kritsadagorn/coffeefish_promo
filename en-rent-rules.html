@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <title>Rules and Regulations for Fishing - Bosang Fishing Park</title>
@@ -350,19 +353,19 @@
         </div>
         <div class="slide-container">
           <div class="slide-area">
-            <img id="slide-img" class="main-img" src="public/21paymenten.webp" alt="" />
+            <img decoding="async" id="slide-img" class="main-img" src="public/21paymenten.webp" alt="" />
             <div class="nav-buttons-row">
               <button type="button" class="btn-nav btn-prev" id="btn-prev" aria-label="Previous" style="display: none;">
-                <img src="public/4next.webp" alt="" />
+                <img decoding="async" src="public/4next.webp" alt="" />
               </button>
               <button type="button" class="btn-nav btn-next" id="btn-next" aria-label="Next">
-                <img src="public/4next.webp" alt="" />
+                <img decoding="async" src="public/4next.webp" alt="" />
               </button>
             </div>
           </div>
           <div class="click-here-wrap" id="click-here-wrap" style="display: none;">
             <a href="#" id="click-here-btn">
-              <img src="public/8clickhere.webp" alt="CLICK HERE" />
+              <img decoding="async" src="public/8clickhere.webp" alt="CLICK HERE" />
             </a>
           </div>
         </div>
@@ -371,9 +374,9 @@
 
     <div id="enjoy-view" class="enjoy-view hidden">
       <div class="page">
-        <img src="public/44enjoy.webp" alt="" />
+        <img decoding="async" src="public/44enjoy.webp" alt="" />
         <a href="index.html" class="home-btn" aria-label="Home">
-          <img src="public/3home.webp" alt="Home" />
+          <img decoding="async" src="public/3home.webp" alt="Home" />
         </a>
       </div>
     </div>
@@ -399,6 +402,16 @@
         var rulesView = document.getElementById("rules-view");
         var enjoyView = document.getElementById("enjoy-view");
 
+        var preloaded = Object.create(null);
+        function preloadSlide(i) {
+          if (i < 0 || i >= slides.length) return;
+          var src = slides[i];
+          if (preloaded[src]) return;
+          var img = new Image();
+          img.src = src;
+          preloaded[src] = true;
+        }
+
         function updateSlide() {
           slideImg.classList.add("img-fade");
           slideImg.onload = function () {
@@ -410,6 +423,8 @@
           btnPrev.style.display = (index > 0 && index < slides.length - 1) ? "block" : "none";
           btnNext.style.display = index < slides.length - 1 ? "block" : "none";
           clickHereWrap.style.display = index === slides.length - 1 ? "block" : "none";
+          preloadSlide(index + 1);
+          preloadSlide(index + 2);
           rulesView.classList.toggle("slide-first", index === 0);
           rulesView.classList.toggle("slide-3-5", index === 2 || index === 3 || index === 4);
           rulesView.classList.toggle("slide-6", index === 5);
@@ -437,7 +452,10 @@
           enjoyView.classList.remove("hidden");
         });
 
-        updateSlide();
+                  preloadSlide(0);
+          preloadSlide(1);
+
+          updateSlide();
       })();
     </script>
 
@@ -482,6 +500,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

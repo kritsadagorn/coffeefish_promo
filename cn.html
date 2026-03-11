@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Marcellus&display=swap"
       rel="stylesheet"
     />
     <title>钓鱼费用 - Bosang Fishing Park</title>
@@ -234,7 +234,7 @@
         <div class="card-slot">
           <a href="cn-own.html" class="card-link">
             <div class="card">
-              <img src="public/5own.webp" alt="使用你自己的鱼竿。" />
+              <img decoding="async" src="public/5own.webp" alt="使用你自己的鱼竿。" />
               <div class="card-title">使用你自己的鱼竿。</div>
             </div>
           </a>
@@ -243,7 +243,7 @@
         <div class="card-slot">
           <a href="cn-rent.html" class="card-link">
             <div class="card">
-              <img src="public/6rent.webp" alt="租一根钓竿" />
+              <img decoding="async" src="public/6rent.webp" alt="租一根钓竿" />
               <div class="card-title">租一根钓竿</div>
             </div>
           </a>
@@ -252,7 +252,7 @@
         <div class="card-slot">
           <a href="cn-package.html" class="card-link">
             <div class="card">
-              <img src="public/7package.webp" alt="钓鱼套餐" />
+              <img decoding="async" src="public/7package.webp" alt="钓鱼套餐" />
               <div class="card-title">钓鱼套餐</div>
             </div>
           </a>
@@ -260,7 +260,7 @@
       </div>
 
       <a href="index.html" class="home-btn" aria-label="返回主页">
-        <img src="public/3home.webp" alt="主页按钮" />
+        <img decoding="async" src="public/3home.webp" alt="主页按钮" />
       </a>
     </div>
 
@@ -305,6 +305,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

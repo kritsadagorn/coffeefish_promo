@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <title>ค่าบริการตกปลา - Bosang Fishing Park</title>
@@ -227,7 +227,7 @@
         <div class="card-slot">
           <a href="th-own.html" class="card-link">
             <div class="card">
-              <img src="public/5own.webp" alt="นำเบ็ดตกปลามาเอง" />
+              <img decoding="async" src="public/5own.webp" alt="นำเบ็ดตกปลามาเอง" />
               <div class="card-title">นำเบ็ดตกปลามาเอง</div>
             </div>
           </a>
@@ -236,7 +236,7 @@
         <div class="card-slot">
           <a href="th-rent.html" class="card-link">
             <div class="card">
-              <img src="public/6rent.webp" alt="เช่าเบ็ด" />
+              <img decoding="async" src="public/6rent.webp" alt="เช่าเบ็ด" />
               <div class="card-title">เช่าเบ็ด</div>
             </div>
           </a>
@@ -245,7 +245,7 @@
         <div class="card-slot">
           <a href="th-package.html" class="card-link">
             <div class="card">
-              <img src="public/7package.webp" alt="แพ็กเกจตกปลา" />
+              <img decoding="async" src="public/7package.webp" alt="แพ็กเกจตกปลา" />
               <div class="card-title">แพ็กเกจตกปลา</div>
             </div>
           </a>
@@ -253,7 +253,7 @@
       </div>
 
       <a href="index.html" class="home-btn" aria-label="กลับหน้าแรก">
-        <img src="public/3home.webp" alt="ปุ่มกลับหน้าแรก" />
+        <img decoding="async" src="public/3home.webp" alt="ปุ่มกลับหน้าแรก" />
       </a>
     </div>
 
@@ -298,6 +298,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

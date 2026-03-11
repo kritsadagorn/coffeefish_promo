@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <title>นำเบ็ดตกปลามาเอง - Bosang Fishing Park</title>
@@ -255,7 +255,7 @@
         <div class="side-label">นำเบ็ดตกปลามาเอง</div>
 
         <div class="center-img">
-          <img src="public/12own.webp" alt="ค่าบริการ นำเบ็ดตกปลามาเอง" />
+          <img decoding="async" src="public/12own.webp" alt="ค่าบริการ นำเบ็ดตกปลามาเอง" />
         </div>
 
         <div class="terms-panel">
@@ -265,7 +265,7 @@
       </div>
 
       <a href="index.html" class="home-btn" aria-label="กลับหน้าแรก">
-        <img src="public/3home.webp" alt="ปุ่มกลับ" />
+        <img decoding="async" src="public/3home.webp" alt="ปุ่มกลับ" />
       </a>
     </div>
 
@@ -310,6 +310,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

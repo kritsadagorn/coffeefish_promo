@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Marcellus&display=swap"
       rel="stylesheet"
     />
     <title>Bosang Fishing Park</title>
@@ -244,7 +244,7 @@
             rel="noopener noreferrer"
             aria-label="Open Bosang Fishing Park Facebook page"
           >
-            <img src="public/1bosang.webp" alt="Bosang Fishing Park logo" />
+            <img decoding="async" src="public/1bosang.webp" alt="Bosang Fishing Park logo" />
           </a>
           <a
             href="https://www.facebook.com/CoffeeFISHth"
@@ -252,7 +252,7 @@
             rel="noopener noreferrer"
             aria-label="Open CoffeeFISH Facebook page"
           >
-            <img src="public/2coffeefish.webp" alt="Coffeefish QR" />
+            <img decoding="async" src="public/2coffeefish.webp" alt="Coffeefish QR" />
           </a>
         </div>
       </div>
@@ -260,15 +260,15 @@
       <div class="right-column">
         <div class="flags-row">
           <a href="th.html" class="flag-block" style="text-decoration: none; color: inherit">
-            <img src="public/9th.webp" alt="Thai flag" />
+            <img decoding="async" src="public/9th.webp" alt="Thai flag" />
             <div class="flag-label">ภาษาไทย</div>
           </a>
           <a href="en.html" class="flag-block" style="text-decoration: none; color: inherit">
-            <img src="public/10en.webp" alt="English flag" />
+            <img decoding="async" src="public/10en.webp" alt="English flag" />
             <div class="flag-label">English</div>
           </a>
           <a href="cn.html" class="flag-block" style="text-decoration: none; color: inherit">
-            <img src="public/11cn.webp" alt="Chinese flag" />
+            <img decoding="async" src="public/11cn.webp" alt="Chinese flag" />
             <div class="flag-label">Chinese</div>
           </a>
         </div>
@@ -318,6 +318,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

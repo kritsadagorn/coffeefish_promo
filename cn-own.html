@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Marcellus&display=swap"
       rel="stylesheet"
     />
     <title>使用你自己的鱼竿 - Bosang Fishing Park</title>
@@ -261,7 +261,7 @@
         <div class="side-label">钓鱼费</div>
 
         <div class="center-img">
-          <img src="public/12own.webp" alt="使用你自己的鱼竿 收费" />
+          <img decoding="async" src="public/12own.webp" alt="使用你自己的鱼竿 收费" />
         </div>
 
         <div class="terms-panel">
@@ -271,7 +271,7 @@
       </div>
 
       <a href="index.html" class="home-btn" aria-label="返回主页">
-        <img src="public/3home.webp" alt="主页按钮" />
+        <img decoding="async" src="public/3home.webp" alt="主页按钮" />
       </a>
     </div>
 
@@ -316,6 +316,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

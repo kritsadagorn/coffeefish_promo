@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <title>钓鱼套餐 - Bosang Fishing Park</title>
@@ -135,7 +138,7 @@
     <div class="page">
       <div class="package-layout">
         <div class="package-img-wrap">
-          <img src="public/7package.webp" alt="钓鱼套餐" />
+          <img decoding="async" src="public/7package.webp" alt="钓鱼套餐" />
         </div>
         <div class="package-options">
           <h1 class="package-title">请选择钓鱼套餐。</h1>
@@ -144,7 +147,7 @@
         </div>
       </div>
       <a href="index.html" class="home-btn" aria-label="返回主页">
-        <img src="public/3home.webp" alt="主页按钮" />
+        <img decoding="async" src="public/3home.webp" alt="主页按钮" />
       </a>
     </div>
 
@@ -189,6 +192,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

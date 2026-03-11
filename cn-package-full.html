@@ -54,10 +54,10 @@
   </head>
   <body>
     <div class="page">
-      <img class="main-img" src="public/16fullcn.webp" alt="" />
+      <img decoding="async" class="main-img" src="public/16fullcn.webp" alt="" />
     </div>
     <a href="index.html" class="home-btn" aria-label="返回主页">
-      <img src="public/3home.webp" alt="Home" />
+      <img decoding="async" src="public/3home.webp" alt="Home" />
     </a>
 
     <script>
@@ -101,6 +101,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 

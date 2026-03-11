@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <title>Fishing Fee - Bosang Fishing Park</title>
@@ -229,7 +229,7 @@
         <div class="card-slot">
           <a href="en-own.html" class="card-link">
             <div class="card">
-              <img src="public/5own.webp" alt="Bring your own fishing rod" />
+              <img decoding="async" src="public/5own.webp" alt="Bring your own fishing rod" />
               <div class="card-title">Bring your own<br />fishing rod</div>
             </div>
           </a>
@@ -238,7 +238,7 @@
         <div class="card-slot">
           <a href="en-rent.html" class="card-link">
             <div class="card">
-              <img src="public/6rent.webp" alt="Rod rental" />
+              <img decoding="async" src="public/6rent.webp" alt="Rod rental" />
               <div class="card-title">Rod rental</div>
             </div>
           </a>
@@ -247,7 +247,7 @@
         <div class="card-slot">
           <a href="en-package.html" class="card-link">
             <div class="card">
-              <img src="public/7package.webp" alt="Fishing packages" />
+              <img decoding="async" src="public/7package.webp" alt="Fishing packages" />
               <div class="card-title">Fishing<br />packages</div>
             </div>
           </a>
@@ -255,7 +255,7 @@
       </div>
 
       <a href="index.html" class="home-btn" aria-label="Go to home">
-        <img src="public/3home.webp" alt="Home button" />
+        <img decoding="async" src="public/3home.webp" alt="Home button" />
       </a>
     </div>
 
@@ -300,6 +300,13 @@
           },
           true
         );
+
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js").catch(function () {});
+          });
+        }
+
       })();
     </script>
 
