@@ -1,5 +1,5 @@
 /* Simple SW cache for GitHub Pages static site */
-const CACHE_NAME = "coffeefish-v1";
+const CACHE_NAME = "coffeefish-v2";
 
 const STATIC_ASSETS = [
   "./",
@@ -46,12 +46,19 @@ self.addEventListener("fetch", (event) => {
   const isGoogleFonts = /fonts\.(googleapis|gstatic)\.com$/i.test(url.hostname);
   if (!isSameOrigin && !isGoogleFonts) return;
 
+  // Never intercept language flag icons – let the browser handle them directly.
+  if (isSameOrigin && /\/public\/(9th|10en|11cn)\.webp$/i.test(url.pathname)) {
+    return;
+  }
+
   if (request.destination === "document") {
     event.respondWith(
       fetch(request)
         .then((resp) => {
-          const copy = resp.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(request, copy));
+          if (resp && resp.ok) {
+            const copy = resp.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(request, copy));
+          }
           return resp;
         })
         .catch(() => caches.match(request))
@@ -64,13 +71,22 @@ self.addEventListener("fetch", (event) => {
       caches.match(request).then((cached) => {
         const networkFetch = fetch(request)
           .then((resp) => {
-            const copy = resp.clone();
-            caches.open(CACHE_NAME).then((c) => c.put(request, copy));
+            if (resp && resp.ok) {
+              const copy = resp.clone();
+              caches.open(CACHE_NAME).then((c) => c.put(request, copy));
+            }
             return resp;
-          })
-          .catch(() => cached);
+          });
 
-        return cached || networkFetch;
+        // If we have a good cached response, return it immediately,
+        // but still update cache in the background.
+        if (cached && cached.ok) {
+          event.waitUntil(networkFetch.catch(() => {}));
+          return cached;
+        }
+
+        // If cached is missing or bad (e.g. 404), try network first, then fallback to cache.
+        return networkFetch.catch(() => cached);
       })
     );
   }

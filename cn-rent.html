@@ -34,7 +34,7 @@
       .page {
         width: 100%;
         max-width: 1200px;
-        padding: 24px 24px 64px;
+        padding: 14px 24px 64px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -46,9 +46,10 @@
         align-items: center;
         justify-content: center;
         padding: 10px 40px;
-        background-color: #ffe8ae;
+        background-color: #eb2030;
+        color: #faf1b3;
         border-radius: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 14px;
         font-size: 44px;
         font-weight: 800;
       }
@@ -84,8 +85,10 @@
       .center-img img {
         display: block;
         width: 100%;
-        max-width: 680px;
+        max-width: 760px;
         height: auto;
+        max-height: 64vh;
+        object-fit: contain;
         margin: 0 auto;
       }
 
@@ -134,14 +137,14 @@
 
       @media (max-width: 1200px) and (min-width: 961px) {
         .page {
-          padding: 16px 16px 56px;
+          padding: 10px 16px 56px;
           display: flex;
           flex-direction: column;
           align-items: center;
         }
 
         .top-banner {
-          margin-bottom: 16px;
+          margin-bottom: 10px;
           font-size: 38px;
           padding: 8px 28px;
         }
@@ -165,9 +168,9 @@
         }
 
         .center-img img {
-          max-width: 520px;
+          max-width: 600px;
           width: auto;
-          max-height: 56vh;
+          max-height: 60vh;
           object-fit: contain;
         }
 
@@ -266,7 +269,7 @@
   </head>
   <body>
     <div class="page">
-      <div class="top-banner">钓鱼费用</div>
+      <div class="top-banner">押金 2000 泰铢/杆</div>
 
       <div class="layout-row">
         <div class="side-label"><span class="desktop-vertical">租<br>一<br>根<br>钓<br>竿</span><span class="mobile-normal">租一根钓竿</span></div>

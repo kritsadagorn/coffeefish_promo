@@ -45,7 +45,8 @@
         align-items: center;
         justify-content: center;
         padding: 10px 40px;
-        background-color: #ffe8ae;
+        background-color: #eb2030;
+        color: #faf1b3;
         border-radius: 16px;
         margin-bottom: 24px;
         font-size: 44px;
@@ -72,6 +73,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .side-label .mobile-normal {
+        display: none;
       }
 
       .center-img {
@@ -213,6 +217,12 @@
           font-size: 20px;
           width: 100%;
         }
+        .side-label .desktop-vertical {
+          display: none;
+        }
+        .side-label .mobile-normal {
+          display: inline;
+        }
 
         .terms-panel {
           padding: 14px 12px 12px;
@@ -255,7 +265,17 @@
       <div class="top-banner">ค่าบริการตกปลา</div>
 
       <div class="layout-row">
-        <div class="side-label">นำเบ็ดตกปลามาเอง</div>
+        <div class="side-label">
+          <span class="desktop-vertical">
+            นำ<br />
+            เบ็ด<br />
+            ตก<br />
+            ปลา<br />
+            มา<br />
+            เอง
+          </span>
+          <span class="mobile-normal">นำเบ็ดตกปลามาเอง</span>
+        </div>
 
         <div class="center-img">
           <img decoding="async" src="public/12own.webp" alt="ค่าบริการ นำเบ็ดตกปลามาเอง" />

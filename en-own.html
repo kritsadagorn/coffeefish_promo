@@ -45,7 +45,8 @@
         align-items: center;
         justify-content: center;
         padding: 10px 40px;
-        background-color: #ffe8ae;
+        background-color: #eb2030;
+        color: #faf1b3;
         border-radius: 16px;
         margin-bottom: 24px;
         font-size: 44px;
@@ -197,6 +198,19 @@
       .side-label .mobile-normal {
         display: none;
       }
+      .side-label .desktop-vertical {
+        display: block;
+      }
+      .side-label .desktop-vertical .word {
+        display: block;
+      }
+      .side-label .desktop-vertical .word + .word {
+        margin-top: 14px;
+      }
+      .side-label .mobile-normal .gap {
+        display: inline-block;
+        width: 0.6em;
+      }
 
       @media (max-width: 960px) {
         .page {
@@ -271,7 +285,13 @@
       <div class="top-banner">FISHING FEE</div>
 
       <div class="layout-row">
-        <div class="side-label"><span class="desktop-vertical">O<br>W<br>N<br>R<br>O<br>D</span><span class="mobile-normal">OWN ROD</span></div>
+        <div class="side-label">
+          <span class="desktop-vertical">
+            <span class="word">O<br />W<br />N</span>
+            <span class="word">R<br />O<br />D</span>
+          </span>
+          <span class="mobile-normal"><span>OWN</span><span class="gap"></span><span>ROD</span></span>
+        </div>
 
         <div class="center-img">
           <img decoding="async" src="public/12own.webp" alt="Own rod fishing fee" />
