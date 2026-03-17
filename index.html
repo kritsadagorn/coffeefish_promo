@@ -43,7 +43,7 @@
       .left-column {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 1px;
       }
 
       .title {
@@ -56,7 +56,6 @@
       .logo-stack {
         display: flex;
         flex-direction: column;
-        gap: 16px;
         align-items: center;
       }
 
@@ -116,8 +115,11 @@
       }
 
       @media (max-width: 1200px) and (min-width: 901px) {
+        body {
+          align-items: flex-start;
+        }
         .page {
-          padding: 32px 4vw;
+          padding: 15px 4vw 24px;
         }
 
         .title {
@@ -125,30 +127,31 @@
         }
 
         .logo-stack img {
-          width: 220px;
+          width: 200px;
         }
 
         .right-column {
-          margin-left: 56px;
+          margin-left: 44px;
+          gap: 22px;
         }
 
         .flags-row {
-          gap: 56px;
+          gap: 44px;
         }
 
         .flag-block img {
-          width: 180px;
-          height: 180px;
+          width: 160px;
+          height: 160px;
         }
 
         .flag-label {
-          font-size: 30px;
-          margin-top: 28px;
+          font-size: 28px;
+          margin-top: 20px;
         }
 
         .choose-text {
-          margin-top: 24px;
-          font-size: 28px;
+          margin-top: 10px;
+          font-size: 24px;
           letter-spacing: 0.2em;
           white-space: nowrap;
         }
@@ -224,12 +227,18 @@
 
       /* tablet-lift-index */
       @media (min-width: 601px) and (max-width: 900px) {
-        .page { transform: translateY(-50px); }
-        .title { transform: translateY(14px); }
+        .page { padding-top: 0px; }
+        .title { margin-top: 14px; }
       }
       @media (max-width: 1200px) and (min-width: 901px) {
-        .page { transform: translateY(-50px); }
-        .title { transform: translateY(14px); }
+        .page { padding-top: 20px; }
+        .title { margin-top: 14px; }
+      }
+
+
+      /* ipad-landscape-tweak */
+      @media (max-width: 1200px) and (min-width: 901px) {
+        body { font-size: 0.88em; }
       }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }

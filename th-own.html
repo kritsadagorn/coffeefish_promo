@@ -28,13 +28,14 @@
         font-family: "Noto Sans Thai", system-ui, -apple-system, sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 40px;
       }
 
       .page {
         width: 100%;
         max-width: 1200px;
-        padding: 24px 24px 64px;
+        padding: 20px 24px 64px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -49,7 +50,7 @@
         background-color: #eb2030;
         color: #faf1b3;
         border-radius: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 14px;
         font-size: 44px;
         font-weight: 800;
       }
@@ -137,14 +138,14 @@
 
       @media (max-width: 1200px) and (min-width: 961px) {
         .page {
-          padding: 16px 16px 56px;
+          padding: 10px 16px 56px;
           display: flex;
           flex-direction: column;
           align-items: center;
         }
 
         .top-banner {
-          margin-bottom: 16px;
+          margin-bottom: 10px;
           font-size: 38px;
           padding: 8px 28px;
         }
@@ -250,6 +251,12 @@
           right: 16px;
           bottom: 16px;
         }
+      }
+
+
+      /* ipad-landscape-tweak */
+      @media (max-width: 1200px) and (min-width: 901px) {
+        body { font-size: 0.88em; }
       }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }

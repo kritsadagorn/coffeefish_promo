@@ -29,7 +29,8 @@
           Arial, sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 40px;
       }
 
       .page {
@@ -247,6 +248,12 @@
           right: 16px;
           bottom: 16px;
         }
+      }
+
+
+      /* ipad-landscape-tweak */
+      @media (max-width: 1200px) and (min-width: 901px) {
+        body { font-size: 0.88em; }
       }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }

@@ -88,14 +88,8 @@
         height: 100%;
         display: block;
       }
-      .btn-prev {
-        left: -56px;
-      }
       .btn-next {
         right: -56px;
-      }
-      .btn-prev img {
-        transform: scaleX(-1);
       }
       .slide-container {
         position: relative;
@@ -114,6 +108,20 @@
       .click-here-wrap img {
         max-width: 200px;
         height: auto;
+      }
+      .extra-text-wrap {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+        color: #d32f2f;
+        padding: 0 10px;
+        line-height: 1.4;
+        z-index: 2;
       }
       .enjoy-view .home-btn {
         position: fixed;
@@ -174,35 +182,52 @@
         margin-right: auto;
       }
       @media (max-width: 1200px) and (min-width: 901px) {
-        .slide-area img.main-img {
-          max-width: 75%;
+        .page {
+          padding: 15px 40px 50px;
         }
-        .rules-view.slide-first .slide-area img.main-img {
-          margin-top: 30px;
+        .title-bar {
+          padding: 8px 16px;
+          margin-bottom: 12px;
+        }
+        .title-bar span {
+          font-size: 28px;
+        }
+        .slide-area {
+          min-height: 300px;
+        }
+        .slide-area img.main-img {
           max-width: 62%;
         }
+        .rules-view.slide-first .slide-area img.main-img {
+          margin-top: 20px;
+          max-width: 52%;
+        }
         .rules-view.slide-3-5 .slide-area img.main-img {
-          margin-top: -18px;
+          margin-top: -10px;
         }
         .rules-view.slide-small .slide-area img.main-img {
-          max-width: 58%;
+          max-width: 50%;
         }
         .rules-view.slide-4-5 .slide-area img.main-img {
-          margin-top: -40px;
-          max-width: 70%;
+          margin-top: -25px;
+          max-width: 58%;
         }
         .rules-view.slide-6 .slide-area img.main-img {
-          margin-top: 20px;
-          max-width: 55%;
+          margin-top: 10px;
+          max-width: 48%;
         }
         .click-here-wrap {
-          bottom: -85px;
+          bottom: -70px;
         }
         .click-here-wrap img {
-          max-width: 280px;
+          max-width: 240px;
+        }
+        .extra-text-wrap {
+          font-size: 22px;
+          bottom: 30px;
         }
         .enjoy-view img {
-          max-width: 60%;
+          max-width: 55%;
         }
       }
       @media (max-width: 900px) {
@@ -212,9 +237,6 @@
         .btn-nav {
           width: 48px;
           height: 48px;
-        }
-        .btn-prev {
-          left: -40px;
         }
         .btn-next {
           right: -40px;
@@ -269,7 +291,6 @@
           position: static;
           transform: none;
         }
-        .btn-prev,
         .btn-next {
           left: auto;
           right: auto;
@@ -279,6 +300,10 @@
         }
         .click-here-wrap img {
           max-width: 260px;
+        }
+        .extra-text-wrap {
+          font-size: 14px;
+          bottom: 85px;
         }
         .enjoy-view img {
           max-width: 88%;
@@ -333,6 +358,12 @@
           object-fit: contain;
         }
       }
+
+
+      /* ipad-landscape-tweak */
+      @media (max-width: 1200px) and (min-width: 901px) {
+        body { font-size: 0.88em; }
+      }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }
       body.is-ready { opacity: 1; }
@@ -357,13 +388,13 @@
           <div class="slide-area">
             <img decoding="async" id="slide-img" class="main-img" src="public/20paymentth.webp" alt="" />
             <div class="nav-buttons-row">
-              <button type="button" class="btn-nav btn-prev" id="btn-prev" aria-label="ก่อนหน้า" style="display: none;">
-                <img decoding="async" src="public/4next.webp" alt="" />
-              </button>
               <button type="button" class="btn-nav btn-next" id="btn-next" aria-label="ถัดไป">
                 <img decoding="async" src="public/4next.webp" alt="" />
               </button>
             </div>
+          </div>
+          <div class="extra-text-wrap" id="extra-text-wrap" style="display: none;">
+            ค่าตะขอ 20 บาท | ชุดอุปกรณ์ตกปลา 70 บาท | สายเบ็ดฟู่/พันกัน 100 บาท
           </div>
           <div class="click-here-wrap" id="click-here-wrap" style="display: none;">
             <a href="#" id="click-here-btn">
@@ -397,12 +428,12 @@
         ];
         var index = 0;
         var slideImg = document.getElementById("slide-img");
-        var btnPrev = document.getElementById("btn-prev");
         var btnNext = document.getElementById("btn-next");
         var clickHereWrap = document.getElementById("click-here-wrap");
         var clickHereBtn = document.getElementById("click-here-btn");
         var rulesView = document.getElementById("rules-view");
         var enjoyView = document.getElementById("enjoy-view");
+        var extraTextWrap = document.getElementById("extra-text-wrap");
 
         var preloaded = Object.create(null);
         function preloadSlide(i) {
@@ -422,9 +453,11 @@
           window.setTimeout(function () {
             slideImg.src = slides[index];
           }, 80);
-          btnPrev.style.display = (index > 0 && index < slides.length - 1) ? "block" : "none";
           btnNext.style.display = index < slides.length - 1 ? "block" : "none";
           clickHereWrap.style.display = index === slides.length - 1 ? "block" : "none";
+          if (extraTextWrap) {
+            extraTextWrap.style.display = index === 2 ? "block" : "none";
+          }
           preloadSlide(index + 1);
           preloadSlide(index + 2);
           rulesView.classList.toggle("slide-first", index === 0);
@@ -435,13 +468,6 @@
           rulesView.classList.toggle("slides-1-2", index <= 2);
           rulesView.classList.toggle("slide-small", index >= 3);
         }
-
-        btnPrev.addEventListener("click", function () {
-          if (index > 0) {
-            index--;
-            updateSlide();
-          }
-        });
         btnNext.addEventListener("click", function () {
           if (index < slides.length - 1) {
             index++;

@@ -28,13 +28,14 @@
         font-family: "Noto Sans Thai", system-ui, -apple-system, sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 40px;
       }
 
       .page {
         width: 100%;
         max-width: 1200px;
-        padding: 0px 24px 64px;
+        padding: 20px 24px 64px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -84,10 +85,8 @@
       .center-img img {
         display: block;
         width: 100%;
-        max-width: 760px;
+        max-width: 680px;
         height: auto;
-        max-height: 64vh;
-        object-fit: contain;
         margin: 0 auto;
       }
 
@@ -136,14 +135,14 @@
 
       @media (max-width: 1200px) and (min-width: 961px) {
         .page {
-          padding: 10px 16px 56px;
+          padding: 16px 16px 56px;
           display: flex;
           flex-direction: column;
           align-items: center;
         }
 
         .top-banner {
-          margin-bottom: 10px;
+          margin-bottom: 16px;
           font-size: 38px;
           padding: 8px 28px;
         }
@@ -165,9 +164,9 @@
         }
 
         .center-img img {
-          max-width: 600px;
+          max-width: 520px;
           width: auto;
-          max-height: 60vh;
+          max-height: 56vh;
           object-fit: contain;
         }
 
@@ -253,6 +252,12 @@
           right: 16px;
           bottom: 16px;
         }
+      }
+
+
+      /* ipad-landscape-tweak */
+      @media (max-width: 1200px) and (min-width: 901px) {
+        body { font-size: 0.88em; }
       }
       /* page-fade */
       body { opacity: 0; transition: opacity 220ms ease; }
