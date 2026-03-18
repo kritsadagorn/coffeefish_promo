@@ -14,7 +14,12 @@
       body {
         min-height: 100vh;
         background-color: #5ce1e6;
-        font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Arial,
+          sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -307,23 +312,35 @@
         }
       }
 
-
       /* ipad-landscape-tweak */
       @media (max-width: 1200px) and (min-width: 901px) {
-        body { font-size: 0.88em; }
+        body {
+          font-size: 0.88em;
+        }
       }
       /* page-fade */
-      body { opacity: 0; transition: opacity 220ms ease; }
-      body.is-ready { opacity: 1; }
-      body.is-fading { opacity: 0; }
+      body {
+        opacity: 0;
+        transition: opacity 220ms ease;
+      }
+      body.is-ready {
+        opacity: 1;
+      }
+      body.is-fading {
+        opacity: 0;
+      }
       @media (prefers-reduced-motion: reduce) {
-        body { transition: none; }
+        body {
+          transition: none;
+        }
       }
       /* slide-fade */
-      #slide-img { transition: opacity 180ms ease; }
-      #slide-img.img-fade { opacity: 0; }
-
-
+      #slide-img {
+        transition: opacity 180ms ease;
+      }
+      #slide-img.img-fade {
+        opacity: 0;
+      }
     </style>
   </head>
   <body>
@@ -334,16 +351,35 @@
         </div>
         <div class="slide-container">
           <div class="slide-area">
-            <img decoding="async" id="slide-img" class="main-img" src="public/31rulecn1.webp" alt="" />
+            <img
+              decoding="async"
+              id="slide-img"
+              class="main-img"
+              src="public/31rulecn1.webp"
+              alt=""
+            />
             <div class="nav-buttons-row">
-              <button type="button" class="btn-nav btn-next" id="btn-next" aria-label="下一页">
+              <button
+                type="button"
+                class="btn-nav btn-next"
+                id="btn-next"
+                aria-label="下一页"
+              >
                 <img decoding="async" src="public/4next.webp" alt="" />
               </button>
             </div>
           </div>
-          <div class="click-here-wrap" id="click-here-wrap" style="display: none;">
+          <div
+            class="click-here-wrap"
+            id="click-here-wrap"
+            style="display: none"
+          >
             <a href="#" id="click-here-btn">
-              <img decoding="async" src="public/8clickhere.webp" alt="CLICK HERE" />
+              <img
+                decoding="async"
+                src="public/8clickhere.webp"
+                alt="CLICK HERE"
+              />
             </a>
           </div>
         </div>
@@ -366,7 +402,7 @@
           "public/34rulecn2.webp",
           "public/37rulecn3.webp",
           "public/40rulecn4.webp",
-          "public/43acceptcn.webp"
+          "public/43acceptcn.webp",
         ];
         var index = 0;
         var slideImg = document.getElementById("slide-img");
@@ -395,7 +431,8 @@
             slideImg.src = slides[index];
           }, 80);
           btnNext.style.display = index < slides.length - 1 ? "block" : "none";
-          clickHereWrap.style.display = index === slides.length - 1 ? "block" : "none";
+          clickHereWrap.style.display =
+            index === slides.length - 1 ? "block" : "none";
           preloadSlide(index + 1);
           preloadSlide(index + 2);
           rulesView.classList.toggle("slide-tight", index <= 1 || index >= 3);
@@ -414,10 +451,10 @@
           enjoyView.classList.remove("hidden");
         });
 
-                  preloadSlide(0);
-          preloadSlide(1);
+        preloadSlide(0);
+        preloadSlide(1);
 
-          updateSlide();
+        updateSlide();
       })();
     </script>
 
@@ -434,7 +471,9 @@
 
         var prefersReduced = false;
         try {
-          prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          prefersReduced =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         } catch (e) {}
         if (prefersReduced) return;
 
@@ -460,7 +499,7 @@
               window.location.href = href;
             }, 200);
           },
-          true
+          true,
         );
 
         if ("serviceWorker" in navigator) {
@@ -468,9 +507,7 @@
             navigator.serviceWorker.register("sw.js").catch(function () {});
           });
         }
-
       })();
     </script>
-
   </body>
 </html>
